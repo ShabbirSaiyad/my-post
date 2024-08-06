@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+# Ignore node_modules in the server directory
+Server/node_modules/
+
 # testing
 /coverage
 

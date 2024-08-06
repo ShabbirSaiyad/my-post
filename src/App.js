@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Post1 from './Components/Post1';
 
 function App() {
+
+  const [showPost, setShowPost] = useState(false);
+
+  const handleButtonClick = () => {
+    setShowPost(true);
+  };
+
+  const handleClosePost = () => {
+    setShowPost(false);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='text-center p-2  bg-opacity-50 w-screen h-auto'>
+
+      <button
+        onClick={handleButtonClick}
+        className='bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition duration-300'
+      >
+        Show Post 
+      </button>
+
+      {showPost && <Post1 onClose={handleClosePost}/>}
     </div>
   );
 }
