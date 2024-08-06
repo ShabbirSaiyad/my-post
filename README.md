@@ -31,8 +31,8 @@ Apply CSS Styles: Ensure that the necessary CSS styles are applied either inline
 Wait for Page to Render: Use page.waitForTimeout() or page.waitForSelector() to wait for the content to fully load and render. This ensures that the OG image captures the content accurately.
 
 5. Capture the OG Image:
-Take Screenshot: Use page.screenshot({ path: 'og-image.png' }); to capture the content of the page as an image file. You can specify the path and format for the screenshot.
-Adjust Options: Configure options such as full page screenshot or viewport size to match the desired output for the OG image.
+Take a Screenshot: Use page.screenshot({ path: 'og-image.png' }); to capture the content of the page as an image file. You can specify the path and format for the screenshot.
+Adjust Options: Configure options such as full-page screenshot or viewport size to match the desired output for the OG image.
 
 6. Close the Browser:
 Cleanup: Close the headless browser instance using browser.close() to free up system resources after the screenshot is taken.
@@ -40,4 +40,22 @@ Cleanup: Close the headless browser instance using browser.close() to free up sy
 7. Serve or Save the Image:
 Store Image: Save the generated image to your file system or a cloud storage service.
 Serve Image: Provide a URL or path to the generated OG image for use in social media previews or other applications.
-Example Code
+
+Let's take a journey to the project
+1. Click on the Show Post button
+   ![step-1](https://github.com/user-attachments/assets/7f681d38-7347-470f-84d4-f814220595d5)
+
+2. Post
+   ![step-2](https://github.com/user-attachments/assets/2b9de19e-e1f2-46a0-bdad-9016fdcd2162)
+
+3. Add title, content, and images to the post
+   ![step-3](https://github.com/user-attachments/assets/3f7ea626-c07b-4494-a796-61b889e4807c)
+
+4. Click on the View Preview button to show the preview. In preview, OG Image will be generated and shown.
+   ![step-4](https://github.com/user-attachments/assets/f9076cdd-385c-4208-a1d6-75737c24ed13)
+
+5. OG Image generated
+   ![Og-Image](https://github.com/user-attachments/assets/b6c25a41-0464-4514-804b-52da791204e2)
+
+
+
