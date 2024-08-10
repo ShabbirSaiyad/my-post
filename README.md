@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+Dynamic Post Generation with Open Graph (OG) Image Generation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project focuses on a dynamic post-generation system that integrates Open Graph (OG) image generation. The primary objective is to create a seamless and interactive experience for users who wish to generate and preview posts dynamically, complete with visually appealing OG images.
 
-## Available Scripts
+Features
+1. Dynamic Post Creation:
+Users can create and customize posts by entering title, content, and author information. The form allows users to upload images, which can be included in the post content.
 
-In the project directory, you can run:
+2. Real-Time Preview:
+A preview feature provides users with a real-time view of how their posts will look. This includes a dynamically generated OG image that reflects the content of the post. Users can see how their post will appear with a variety of styles and layouts before finalizing it.
 
-### `npm start`
+3. Open Graph (OG) Image Generation:
+The system generates OG images dynamically based on the content of the post. These images are tailored to include key details such as the title and content, ensuring that they are visually compelling and relevant. The OG image generation process utilizes server-side logic to create images that are optimized for social media sharing.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Steps to Generate OG Images with Puppeteer
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Setup Puppeteer:
+Install Puppeteer: First, add Puppeteer to your project. Run npm install puppeteer to install it.
+Import Puppeteer: In your server-side code or script, import Puppeteer with const puppeteer = require('puppeteer');.
 
-### `npm test`
+2. Launch a Headless Browser:
+Initialize Browser: Create a new instance of the headless browser by calling puppeteer.launch(). This starts an instance of Chromium without a graphical interface.
+Create a New Page: Use browser.newPage() to open a new page in the headless browser.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. Configure Page Settings:
+Set Viewport: Define the dimensions for the OG image by setting the viewport size using page.setViewport({ width: 1200, height: 630 });. The size should match the desired OG image dimensions.
+Set Content: Load the HTML content that you want to render for the OG image. You can use page.setContent(html) to set the page content.
 
-### `npm run build`
+4. Apply Styles and Render Content:
+Apply CSS Styles: Ensure that the necessary CSS styles are applied either inline or via linked stylesheets. Puppeteer will render the page as if it were a fully functional web page.
+Wait for Page to Render: Use page.waitForTimeout() or page.waitForSelector() to wait for the content to fully load and render. This ensures that the OG image captures the content accurately.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+5. Capture the OG Image:
+Take a Screenshot: Use page.screenshot({ path: 'og-image.png' }); to capture the content of the page as an image file. You can specify the path and format for the screenshot.
+Adjust Options: Configure options such as full-page screenshot or viewport size to match the desired output for the OG image.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+6. Close the Browser:
+Cleanup: Close the headless browser instance using browser.close() to free up system resources after the screenshot is taken.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+7. Serve or Save the Image:
+Store Image: Save the generated image to your file system or a cloud storage service.
+Serve Image: Provide a URL or path to the generated OG image for use in social media previews or other applications.
 
-### `npm run eject`
+Let's take a journey to the project
+1. Click on the Show Post button
+   ![step-1](https://github.com/user-attachments/assets/7f681d38-7347-470f-84d4-f814220595d5)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Post
+   ![step-2](https://github.com/user-attachments/assets/2b9de19e-e1f2-46a0-bdad-9016fdcd2162)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Add title, content, and images to the post
+   ![step-3](https://github.com/user-attachments/assets/3f7ea626-c07b-4494-a796-61b889e4807c)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. Click on the View Preview button to show the preview. In preview, OG Image will be generated and shown.
+   ![step-4](https://github.com/user-attachments/assets/f9076cdd-385c-4208-a1d6-75737c24ed13)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+5. OG Image generated
+   ![Og-Image](https://github.com/user-attachments/assets/b6c25a41-0464-4514-804b-52da791204e2)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
