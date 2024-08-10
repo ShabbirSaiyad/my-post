@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
 import Post1 from './Components/Post1';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
@@ -25,6 +27,7 @@ function App() {
       </button>
 
       {showPost && <Post1 onClose={handleClosePost}/>}
+      <ToastContainer />
     </div>
   );
 }

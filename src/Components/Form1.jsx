@@ -4,21 +4,35 @@ import { MdSubtitles } from 'react-icons/md';
 import { LiaCommentSolid } from 'react-icons/lia';
 import { IoImages } from 'react-icons/io5';
 import Upload from '../Upload';
+import { toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 
-const Form = ({ onPreview }) => {
-  const { register, handleSubmit, setValue, formState: { errors } } = useForm();
+const Form = ({ onPreview ,setShowPreview,onClose}) => {
+  const { register, handleSubmit, setValue,reset, formState: { errors } } = useForm();
   const [image, setImage] = useState(null);
+
   const handlePreview = (data) => {
     onPreview({ ...data, image });
   };
 
+  const handleFormSubmit = (data) => {
+
+    setShowPreview(false);
+
+    reset();
+    setImage(null);
+
+    toast.success("Post submitted successfully!");
+
+    onClose();
+  };
+
   return (
-    <form className='m-4' onSubmit={handleSubmit(handlePreview)}>
+    <form className='m-4'  onSubmit={handleSubmit(handleFormSubmit)}>
 
         {/* Title */}
       <div className='flex items-center gap-4'>
     
-      {/* bg-[#b7950b] */}
         <div className=' bg-[#b7950b]  w-[45px] h-[45px] flex justify-center items-center rounded-lg'>
           <MdSubtitles className='text-white text-[28px]' />
         </div>
@@ -61,13 +75,15 @@ const Form = ({ onPreview }) => {
       </div>
 
       <div className='flex items-center mt-10 justify-start gap-4 translate-x-16'>
-        <button
-          type="button"
-          className='bg-[#1b4f72] text-white p-2 rounded'
-          onClick={handleSubmit(handlePreview)}
-        >
-          View Preview
-        </button>
+      
+          <button
+            type="button"
+            className='bg-[#1b4f72] text-white p-2 rounded'
+            onClick={handleSubmit(handlePreview)}
+          >
+            View Preview
+          </button>
+      
         <button
           type="submit"
           className='bg-[#1b4f72] text-white p-2 rounded'

@@ -11,7 +11,13 @@ const app = express();
 const PORT = 4000;
 
 // Allow requests from http://localhost:3000
-app.use(cors({ origin: 'http://localhost:3000' }));
+  // origin: 'https://letspostit.netlify.app' 
+app.use(cors({ 
+
+  origin: 'http://localhost:3000', 
+  // methods: ['GET', 'POST', 'OPTIONS'], // Add the methods you want to allow
+  // allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json());
 
 // Serve static files from the public directory

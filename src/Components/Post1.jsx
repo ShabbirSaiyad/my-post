@@ -93,7 +93,7 @@ const Post1 = ({ onClose }) => {
                     </div>
 
                     {/* Form */}
-                    <Form1 onPreview={handlePreview} />
+                    <Form1 onPreview={handlePreview}  setShowPreview={setShowPreview}  onClose={onClose}/>
                 </div>
 
                 {/* Preview Section */}

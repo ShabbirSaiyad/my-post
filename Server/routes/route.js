@@ -18,7 +18,10 @@ const storage = multer.diskStorage({
     },
   });
   
-  const upload = multer({ storage });
+  const upload = multer({ storage , limits: {
+    fileSize: 10 * 1024 * 1024, // 10 MB for files
+    fieldSize: 2 * 1024 * 1024, // 2 MB for text fields
+  },});
 
 router.post('/generate-og-image',upload.single('image'),generateOGImage);
 

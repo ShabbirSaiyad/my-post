@@ -28,9 +28,7 @@ export default function Upload({
     const file = acceptedFiles[0]
     if (file) {
       previewFile(file)
-      setSelectedFile(file)
-      // if (onChange) onChange(file);
-     
+      setSelectedFile(file)     
       
     }
   }
@@ -43,14 +41,14 @@ export default function Upload({
   })
 
   const previewFile = (file) => {
-    // console.log(file)
+
     const reader = new FileReader()
     reader.readAsDataURL(file)
     reader.onloadend = () => {
       setPreviewSource(reader.result)
       onChange && onChange(reader.result); 
     }
-    console.log("Preview Source: ",previewSource)
+    
   }
 
   useEffect(() => {
